@@ -1,0 +1,62 @@
+# Ingress Resources for Local Domains
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: medicu-dev-ingress
+  namespace: dev
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: dev.local.medicu.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: medicu-dev-service
+            port:
+              number: 80
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: medicu-stage-ingress
+  namespace: stage
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: stage.local.medicu.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: medicu-stage-service
+            port:
+              number: 80
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: medicu-prod-ingress
+  namespace: prod
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: local.medicu.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: medicu-prod-service
+            port:
+              number: 80
