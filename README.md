@@ -1,13 +1,17 @@
 # 🏥 Medicure – HealthCare CI/CD Automation Project
 
 ## 📘 Overview
-**Medicure** is an end-to-end CI/CD automation project that deploys a Spring Boot–based healthcare microservice (“Insure Me”) on a Kubernetes cluster.  
+**Medicure** is an end-to-end CI/CD automation project that deploys a Spring Boot healthcare microservice (“Insure Me”) on a Kubernetes cluster.  
 It integrates source control, infrastructure provisioning, configuration management, containerization, continuous integration, continuous deployment, and monitoring — all automated using modern DevOps tools on AWS.
+
+> 💡 *Note:* This setup uses a **self-managed Kubernetes cluster (kubeadm on AWS EC2 instances)** to emulate a managed EKS environment. The focus is on demonstrating cluster lifecycle management, automation, and multi-environment deployments.
+
 
 ---
 
 ## ⚙️ Architecture Summary
-This project builds and automates a complete production-ready CI/CD system:
+Automate the build, deployment, and monitoring of a Spring Boot–based healthcare microservice using a complete DevOps toolchain.  
+The project demonstrates end-to-end CI/CD automation, from infrastructure provisioning to application monitoring, on a **self-managed Kubernetes cluster (kubeadm on AWS EC2)** that replicates production behavior similar to Amazon EKS.
 
 1. **Terraform** provisions AWS infrastructure (VPC, EC2, IAM, networking).
 2. **Ansible** configures servers and installs dependencies.
